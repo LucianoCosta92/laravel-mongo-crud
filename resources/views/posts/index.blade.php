@@ -28,6 +28,7 @@
                             <td>{{ $post->title }}</td>
                             <td>{{ $post->body }}</td>
                             <td>
+                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-warning btn-sm">Show</a>
                                 <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                 <form action="{{ route('posts.destroy', $post->id) }}" onsubmit="return confirm('Are you sure you want to delete this post?')" method="post" style="display:inline;">
                                     @csrf
