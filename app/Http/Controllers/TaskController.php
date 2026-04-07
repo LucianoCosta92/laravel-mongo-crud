@@ -33,6 +33,8 @@ class TaskController extends Controller
             'status' => 'required|string',
             'priority' => 'required|string',
             'due_date' => 'nullable|date',
+            'category_id' => 'nullable|string',
+            'user_id' => 'nullable|string',
             'tags' => 'array'
         ]);
 
@@ -66,6 +68,6 @@ class TaskController extends Controller
     {
         Task::findOrFail($id)->delete();
 
-        return response()->json(['message' => 'Deletado']);
+        return response()->json(['message' => 'Tarefa deletada']);
     }
 }
