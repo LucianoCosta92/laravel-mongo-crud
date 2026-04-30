@@ -40,7 +40,6 @@ class UserController extends Controller
     public function show(string $id)
     {
         $user = User::with(['tasks', 'categories'])->findOrFail($id);
-
         return response()->json($user);
     }
 
