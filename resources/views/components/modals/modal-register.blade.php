@@ -12,7 +12,7 @@
         </div>
         <div class="field">
             <label>Senha</label>
-            <input id="reg-password" type="password" placeholder="mínimo 8 caracteres" />
+            <input id="reg-password" type="password" placeholder="mínimo 6 caracteres" />
         </div>
         <div class="field">
             <label>Confirmar senha</label>
