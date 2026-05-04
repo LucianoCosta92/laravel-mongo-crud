@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,8 +22,6 @@ class LoginController extends Controller
 
             $token = $user->createToken('api-token')->plainTextToken;
 
-            // request->user()->createToken('api-token')->plainTextToken;
-
             return response()->json([
                 'status' => true,
                 'token' => $token,
@@ -38,19 +35,14 @@ class LoginController extends Controller
         }
     }
 
-    public function logout(User $user): JsonResponse{
-        try {
-            $user->tokens()->delete();
-            return response()->json([
-                'status' => true,
-                'message' => $user->name . ' deslogado com sucesso',
-            ], 200);
+    public function logout(Request $request): JsonResponse{
+        $user = $request->user();
 
-        } catch (\Exception $e) {
-            return response()->json([
-                'status' => false,
-                'message' => 'Erro ao deslogar!',
-            ], 401);
-        }
+        $user->currentAccessToken()->delete();
+
+        return response()->json([
+            'status' => true,
+            'message' => $user->name . ' deslogado com sucesso.'
+        ]);
     }
 }

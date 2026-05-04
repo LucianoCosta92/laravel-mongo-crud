@@ -2,26 +2,29 @@
 
 use App\Http\Controllers\Api\LoginController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\TaskController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\TaskController;
+use App\Http\Controllers\Api\UserController;
 
-// POST - http://127.0.0.1:8000/api/
 Route::post('/', [LoginController::class, 'login'])->name('login');
-/*
-{
-"email": "teste@email.com", "password": "123456"
-}
-*/
+
+Route::post('/users', [UserController::class, 'store'])->name('users.store');
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
+
+    Route::post('/logout/{user}', [LoginController::class, 'logout'])->name('logout');
+
     Route::apiResource('tasks', TaskController::class);
     Route::apiResource('categories', CategoryController::class);
-    Route::apiResource('users', UserController::class);
-    Route::post('/logout/{user}', [LoginController::class, 'logout']);
+
+    Route::prefix('me')->name('users.')->group(function(){
+        Route::get('/', [UserController::class, 'show'])->name('show');
+        Route::put('/',    [UserController::class, 'update'])->name('update');
+        Route::delete('/', [UserController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
 });
-
-
 
 
 ?>
