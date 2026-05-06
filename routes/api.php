@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\LoginController;
+/*use App\Http\Controllers\Api\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\TaskController;
@@ -24,7 +24,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     });
 
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
-});
+});*/
 
 
 ?>
