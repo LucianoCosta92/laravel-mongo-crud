@@ -64,7 +64,7 @@
         </div>
         <div class="field">
             <label>Senha</label>
-            <input type="password" name="password" placeholder="••••••••" required />
+            <input type="password" name="password" placeholder="••••••" required />
             @error('password') <span class="error">{{ $message }}</span> @enderror
         </div>
         <button type="submit" class="btn">Entrar</button>

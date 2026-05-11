@@ -24,6 +24,12 @@ class AuthController extends Controller
             $request->session()->regenerate();
             return redirect()->route('dashboard');
         }
+
+        return back()->withErrors(['email' => 'Credenciais inválidas.'])->onlyInput('email');
+    }
+
+    public function showRegister(){
+        return view('auth.register');
     }
 
     public function register(Request $request){

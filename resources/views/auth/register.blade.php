@@ -63,7 +63,7 @@
         </div>
         <div class="field">
             <label>Senha</label>
-            <input type="password" name="password" placeholder="mínimo 8 caracteres" required />
+            <input type="password" name="password" placeholder="mínimo 6 caracteres" required />
             @error('password') <span class="error">{{ $message }}</span> @enderror
         </div>
         <div class="field">
