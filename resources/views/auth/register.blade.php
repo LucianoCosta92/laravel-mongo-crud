@@ -8,13 +8,23 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #f5f4f0; color: #1a1a18; font-size: 14px;
+            color: #1a1a18; font-size: 14px;
             min-height: 100vh; display: flex; align-items: center; justify-content: center;
+
+            background-image: url("{{ asset('images/background.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
         .card {
-            background: #fff; border-radius: 14px;
-            border: 0.5px solid rgba(0,0,0,0.18); padding: 2.5rem 2rem;
-            width: 100%; max-width: 380px;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 14px;
+            border: 0.5px solid rgba(255,255,255,0.6);
+            padding: 2.5rem 2rem;
+            width: 100%; max-width: 360px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
         }
         .logo { font-size: 20px; font-weight: 600; color: #1D9E75; margin-bottom: .25rem; }
         .sub  { font-size: 13px; color: #5f5e5a; margin-bottom: 1.75rem; }

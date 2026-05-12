@@ -37,7 +37,20 @@ class AuthController extends Controller
             'name' => 'required|string|max:150',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:6|confirmed',
+        ], [
+            'name.required'    => 'O nome é obrigatório.',
+            'email.required'   => 'O e-mail é obrigatório.',
+            'email.email'      => 'Informe um e-mail válido.',
+            'password.required' => 'A senha é obrigatória.',
+            'password.min'     => 'A senha deve ter no mínimo 6 caracteres.',
+            'password.confirmed' => 'As senhas não coincidem.',
         ]);
+
+        if(User::where('email', $request->email)->exists()){
+            return back()
+                ->withInput()
+                ->withErrors(['email' => 'Este e-mail já está cadastrado!']);
+        }
 
         $user = User::create([
             'name' => $request->name,
