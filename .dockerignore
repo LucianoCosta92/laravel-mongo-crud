@@ -1,0 +1,26 @@
+# Dependências (reinstaladas no build)
+vendor/
+node_modules/
+
+# Cache e logs do Laravel
+storage/logs/*.log
+storage/framework/cache/
+storage/framework/sessions/
+storage/framework/views/
+
+# Git
+.git/
+.gitignore
+
+# Docker
+docker-compose.override.yml
+.env.docker
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Testes
+tests/
+phpunit.xml

@@ -115,9 +115,12 @@ return [
         ],
 
         'mongodb' => [
-            'driver' => 'mongodb',
-            'dsn' => env('MONGODB_URI', 'mongodb://localhost:27017'),
-            'database' => env('MONGODB_DATABASE', 'laravel_crud'),
+            'driver'   => 'mongodb',
+            'host'     => env('DB_HOST', 'mongodb'),
+            'port'     => env('DB_PORT', 27017),
+            'database' => env('DB_DATABASE', 'taskmanager'),
+            'username' => env('DB_USERNAME', ''),
+            'password' => env('DB_PASSWORD', ''),
         ],
 
     ],
