@@ -66,7 +66,7 @@ http://localhost:8000
 
 | Container | Imagem | Função |
 |---|---|---|
-| `taskmanager_app` | PHP 8.2-FPM Alpine | Processa o Laravel |
+| `taskmanager_app` | PHP 8.4-FPM Alpine | Processa o Laravel |
 | `taskmanager_nginx` | Nginx Alpine | Servidor HTTP na porta 8000 |
 | `taskmanager_mongodb` | MongoDB 7 | Banco de dados |
 | `taskmanager_redis` | Redis 7 Alpine | Cache e sessões |
