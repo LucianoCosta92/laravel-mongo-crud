@@ -58,7 +58,7 @@ docker compose exec app php artisan cache:clear
 
 ### 4. Acesse a aplicação
 
-http://localhost:8000
+http://localhost:8000/login
 
 ---
 
